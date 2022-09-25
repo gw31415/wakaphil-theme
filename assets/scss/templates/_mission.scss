@@ -14,7 +14,7 @@
       height: 100%;
       width: 100%;
       background: $image-mask;
-      opacity: .8;
+      opacity: 0.8;
     }
     width: 80%;
     @include mobile {
@@ -71,10 +71,8 @@
     font-size: 60px;
     line-height: 65px;
     letter-spacing: 1px;
-    span {
-      clip-path: inset(0 100% 0 0);
-      text-transform: capitalize;
-    }
+    clip-path: inset(0 100% 0 0);
+    text-transform: capitalize;
     @include desktop {
       font-size: 50px;
       line-height: 60px;

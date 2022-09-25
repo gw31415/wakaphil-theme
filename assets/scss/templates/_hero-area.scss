@@ -54,10 +54,7 @@
         letter-spacing: 1px;
         line-height: 1;
         margin-bottom: 20px;
-
-        span {
-          clip-path: inset(0 100% 0 0);
-        }
+        clip-path: inset(0 100% 0 0);
 
         @include desktop-lg {
           font-size: 60px;
