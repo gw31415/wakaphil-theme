@@ -61,9 +61,9 @@
 		    line-height: 60px;
 		    height: 60px;
 		    width: 60px;
-		    border: 1px solid $white;
+		    border: 1px solid $black;
             border-radius: 100%;
-            color: $white;
+            color: $black;
 		}
 	}
 }
@@ -125,7 +125,7 @@
 
 .jd-modal{
     .close{
-        color: $white;
+        color: $black;
         text-shadow: none;
         cursor: pointer;
         outline: 0;
@@ -150,7 +150,7 @@
                 li{
                     list-style: none;
                     margin-bottom: 5px;
-                    color: $white;
+                    color: $black;
                     letter-spacing: 1px;
                     span{
                     padding-right: 5px;
@@ -162,7 +162,7 @@
             }
             .form-control{
                 margin-bottom: 20px;
-                color: $white;
+                color: $black;
                 background: transparent;
                 padding: 15px 20px;
                 border-radius: 0;
@@ -170,7 +170,7 @@
                 letter-spacing: 1px;
                 &::placeholder{
                     letter-spacing: 1px;
-                    color: $white;
+                    color: $black;
                 }
                 &:focus{
                     border-color: $btn-color;
@@ -186,7 +186,7 @@
 .apply-btn{
     padding: 15px 25px;
     background: $btn-color;
-    color: $white;
+    color: $black;
     border-radius: 0;
     letter-spacing: 2px;
     text-decoration: none;
@@ -194,7 +194,7 @@
     border: none;
     cursor: pointer;
     &:hover{
-        color: $white;
+        color: $black;
         text-decoration: none;
     }
 }

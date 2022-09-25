@@ -1,190 +1,190 @@
 .hero-slider-wrapper {
-	position: relative;
-	z-index: 5;
+  height: 80vh;
+  margin-bottom: 20vh;
+  .item {
+    .item-image {
+      position: absolute;
+      right: 0;
+      bottom: 20%;
+      z-index: 0;
 
-	.item {
-		position: relative;
-		overflow: hidden;
+      overflow: hidden; // image-veilを隠す
+      opacity: 0.5;
 
-		.item-image {
-			position: relative;
-			width: 70%;
-			margin-left: auto;
+      img {
+        width: 100vmin;
+        height: auto;
+      }
 
-			img {
-				width: 100%;
-			}
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.28;
+      }
 
-			&::before {
-				content: '';
-				background: #0a0f61;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				opacity: .28;
-			}
+      &:after {
+        background: $image-veil;
+      }
 
-			&:after {
-				background: #38396B;
-			}
+      @extend .image-reveal;
+    }
 
-			@extend .image-reveal;
-		}
+    .content {
+      z-index: 999;
+      position: absolute;
+      top: 33%;
+      left: 1.5em;
 
-		.content {
-			position: absolute;
-			top: 33%;
-			left: 13%;
+      @include desktop {
+        top: 20%;
+      }
 
-			@include desktop {
-				top: 20%;
-			}
+      @include mobile {
+        top: 0;
+        left: 1em;
+      }
 
-			@include mobile {
-				top: 0;
-			}
+      h2 {
+        line-height: 110px;
+        font-size: 80px;
+        letter-spacing: 1px;
+        line-height: 1;
+        margin-bottom: 20px;
 
-			h2 {
-				font-weight: 600;
-				line-height: 110px;
-				font-size: 80px;
-				letter-spacing: 1px;
-				line-height: 1;
-				margin-bottom: 20px;
+        span {
+          clip-path: inset(0 100% 0 0);
+        }
 
-				span {
-					clip-path: inset(0 100% 0 0);
-				}
+        @include desktop-lg {
+          font-size: 60px;
+          line-height: 70px;
+          letter-spacing: 1px;
+        }
 
-				@include desktop-lg {
-					font-size: 60px;
-					line-height: 70px;
-					letter-spacing: 1px;
-				}
+        @include tablet {
+          font-size: 35px;
+          line-height: 40px;
+        }
+      }
 
-				@include tablet {
-					font-size: 35px;
-					line-height: 40px;
-				}
-			}
+      h3 {
+        margin-bottom: 95px;
+        letter-spacing: 2px;
+        font-weight: 400;
+        font-size: 20px;
+        font-family: $secondary-font;
 
-			h3 {
-				margin-bottom: 95px;
-				letter-spacing: 2px;
-				font-weight: 400;
-				font-size: 20px;
-				font-family: $secondary-font;
+        @include desktop-lg {
+          font-size: 20px;
+          margin-bottom: 50px;
+        }
 
-				@include desktop-lg {
-					font-size: 20px;
-					margin-bottom: 50px;
-				}
+        @include tablet {
+          font-size: 16px;
+          letter-spacing: 1px;
+          margin-bottom: 30px;
+        }
+      }
 
-				@include tablet {
-					font-size: 16px;
-					letter-spacing: 1px;
-					margin-bottom: 30px;
-				}
-			}
+      .hero-btn {
+        padding: 25px 50px;
+        color: $black;
+        border-radius: 0;
+        border: none;
+        letter-spacing: 2px;
+        background: $btn-color;
 
-			.hero-btn {
-				padding: 25px 50px;
-				font-weight: 600;
-				color: $white;
-				border-radius: 0;
-				border: none;
-				letter-spacing: 2px;
-				background: $btn-color;
+        @include desktop {
+          padding: 20px 30px;
+        }
 
-				@include desktop {
-					padding: 20px 30px;
-				}
+        @include mobile {
+          padding: 15px 25px;
+        }
+      }
+    }
+  }
 
-				@include mobile {
-					padding: 15px 25px;
-				}
-			}
-		}
-	}
+  .slick-slide {
+    outline: 0;
+  }
 
-	.slick-slide {
-		outline: 0;
-	}
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    cursor: pointer;
+    z-index: 5;
+    background: transparent;
+    border: none;
+    outline: none;
 
-	.slick-prev,
-	.slick-next {
-		position: absolute;
-		cursor: pointer;
-		z-index: 5;
-		background: transparent;
-		border: none;
-		outline: none;
+    i {
+      color: $black;
+      opacity: 0.33;
+      font-size: 25px;
 
-		i {
-			color: $white;
-			opacity: .33;
-			font-size: 25px;
+      @include tablet {
+        font-size: 20px;
+      }
+    }
 
-			@include tablet {
-				font-size: 20px;
-			}
-		}
+    &:hover {
+      i {
+        opacity: 1;
+      }
+    }
+  }
 
-		&:hover {
-			i {
-				opacity: 1;
-			}
-		}
-	}
+  .slick-next {
+    right: 4%;
+    bottom: 5%;
+  }
 
-	.slick-next {
-		right: 4%;
-		bottom: 5%;
-	}
+  .slick-prev {
+    right: 6%;
+    bottom: 5%;
+  }
 
-	.slick-prev {
-		right: 6%;
-		bottom: 5%;
-	}
+  // SCROLLの配置
+  .scroll {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    right: 50%;
+  }
 }
 
 .scroll {
-	height: 70px;
-	overflow: hidden;
+  transform: rotate(-90deg);
+  h6 {
+    font-size: 13px;
+    font-family: $secondary-font;
 
-	h6 {
-		transform: rotate(-90deg);
-		letter-spacing: 2px;
-		position: relative;
-		font-size: 13px;
-		margin-top: 20px;
-		font-family: $secondary-font;
-
-		&::before {
-			position: absolute;
-			content: '';
-			width: 30px;
-			height: 1px;
-			background: #9ea0c9;
-			left: 48%;
-			top: -4px;
-			overflow: hidden;
-			animation-name: scroll_animation;
-			animation-duration: 1s;
-			animation-iteration-count: infinite;
-			animation-timing-function: ease-in-out;
-		}
-	}
+    &::before {
+      position: absolute;
+      content: "";
+      width: 3em;
+      height: 1px;
+      background: #9ea0c9;
+      overflow: hidden;
+      animation-name: scroll_animation;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
 }
 
 @keyframes scroll_animation {
-	from {
-		transform: translateX(0);
-	}
+  from {
+    transform: translateX(0);
+  }
 
-	to {
-		transform: translateX(-200%);
-	}
+  to {
+    transform: translateX(-200%);
+  }
 }

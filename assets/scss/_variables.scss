@@ -1,13 +1,23 @@
 // Colors
-$primary-color: #0a6446;
-$black: #000;
-$white: #fff;
+$accent-color: #DF3666;
+$primary-color: #38396B;
+$white: white;
+$black: #05091D;
 $gray: #848484;
-$border-color:#d8dbdd;
-$primary-font: 'butlerbold';
-$secondary-font: 'bebas_neue_regular';
+
+$border-color:#D8DBDD;
+$text-color: $black;
+$text-color-dark: $white;
+$btn-color: $accent-color;
+$background: $white;
+$background-footer: $primary-color;
+$image-veil: $primary-color;
+$image-mask: #add6ff;
+
+$primary-font: 'Shippori Mincho B1';
+$secondary-font: 'Shippori Mincho B1';
 $icon-font: 'FontAwesome';
-$text-color: $white;
-$text-color-dark: #05091D;
-$btn-color: #FF1D5D;
+
+
+// Duplicated: Used in Career page only
 $body-color: #0c5460;
