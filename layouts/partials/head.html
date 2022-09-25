@@ -33,8 +33,9 @@ AUTHOR WEBSITE: https://themefisher.com
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<!--Favicon-->
-	{{ $favicon := cond (isset .Site.Params `favicon`) .Site.Params.favicon `/favicon.png` }}
-	<link rel="shortcut icon" href="{{ $favicon | absURL }}" type="image/x-icon" />
+	{{ $favicon := cond (isset .Site.Params `favicon`) ((resources.Get
+	.Site.Params.favicon).Resize "180x180 png").RelPermalink `/favicon.png` }}
+	<link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon" />
 	<link rel="icon" href="{{ $favicon | absURL }}" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="{{ $favicon | absURL }}" />
 
