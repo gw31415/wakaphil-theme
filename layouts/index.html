@@ -55,7 +55,7 @@
 		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
 		<picture>
 			<source type="image/webp" srcset="{{ .RelPermalink }}">
-			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+			<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
 				alt="section-bg" class="img-fluid">
 		</picture>
 		{{ end }}
@@ -94,7 +94,7 @@
 							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
 							<picture>
 								<source type="image/webp" srcset="{{ .RelPermalink }}">
-								<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+								<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
 									src="{{ $jpgImg.RelPermalink }}" class="img-fluid" alt="video-thumb">
 							</picture>
 							{{ end }}
@@ -133,7 +133,7 @@
 							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
 							<picture>
 								<source type="image/webp" srcset="{{ .RelPermalink }}">
-								<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+								<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
 									src="{{ $jpgImg.RelPermalink }}" class="img-fluid" alt="vision-thumb">
 							</picture>
 							{{ end }}
@@ -161,7 +161,7 @@
 		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
 		<picture>
 			<source type="image/webp" srcset="{{ .RelPermalink }}">
-			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+			<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
 				class="img-fluid" alt="section-bg">
 		</picture>
 		{{ end }}
@@ -207,7 +207,7 @@
 						{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
 						<picture>
 							<source type="image/webp" srcset="{{ .RelPermalink }}">
-							<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+							<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
 								src="{{ $jpgImg.RelPermalink }}" alt="product-image">
 						</picture>
 						{{ end }}
