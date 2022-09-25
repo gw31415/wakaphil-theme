@@ -21,8 +21,8 @@
 						</div>
 						<div class="item-image image-reveal">
 							{{ with resources.Get .image }}
-							{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+							{{ $jpgImg := .Resize "750x jpg" }}
+							{{ with .Resize "750x webp" }}
 							<picture>
 								<source type="image/webp" srcset="{{ .RelPermalink }}">
 								<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
@@ -51,27 +51,25 @@
 	{{ if .bg_img }}
 	<div class="bg">
 		{{ with resources.Get .bg_img }}
-		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		{{ $jpgImg := .Resize "750x jpg" }}
+		{{ $webpImg := .Resize "750x webp" }}
 		<picture>
-			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 			<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
 				alt="section-bg" class="img-fluid">
 		</picture>
-		{{ end }}
 		{{ end }}
 	</div>
 	{{ end }}
 	<div class="right-shape">
 		{{ with resources.Get `images/right-shape.png` }}
-		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		{{ $jpgImg := .Resize "750x jpg" }}
+		{{ $webpImg := .Resize "750x webp" }}
 		<picture>
-			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
 				class="img-fluid" alt="right-shape">
 		</picture>
-		{{ end }}
 		{{ end }}
 	</div>
 	<div class="container">
@@ -88,14 +86,13 @@
 						<a class="video-play"
 							data-video="https://www.youtube.com/embed/{{.video_id}}?autoplay=1&showinfo=0&controls=0">
 							{{ with resources.Get .video_thumb }}
-							{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+							{{ $jpgImg := .Resize "750x jpg" }}
+							{{ $webpImg := .Resize "750x webp" }}
 							<picture>
-								<source type="image/webp" srcset="{{ .RelPermalink }}">
+								<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 								<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
 									src="{{ $jpgImg.RelPermalink }}" class="img-fluid" alt="video-thumb">
 							</picture>
-							{{ end }}
 							{{ end }}
 							<i class="fa fa-play"></i>
 						</a>
@@ -127,14 +124,13 @@
 						</div>
 						<div class="image image-reveal">
 							{{ with resources.Get .image }}
-							{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+							{{ $jpgImg := .Resize "750x jpg" }}
+							{{ $webpImg := .Resize "750x webp" }}
 							<picture>
-								<source type="image/webp" srcset="{{ .RelPermalink }}">
+								<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 								<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
 									src="{{ $jpgImg.RelPermalink }}" class="img-fluid" alt="vision-thumb">
 							</picture>
-							{{ end }}
 							{{ end }}
 							</img>
 						</div>
@@ -155,27 +151,25 @@
 	{{ if .bg_img }}
 	<div class="bg">
 		{{ with resources.Get .bg_img }}
-		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		{{ $jpgImg := .Resize "750x jpg" }}
+		{{ $webpImg := .Resize "750x webp" }}
 		<picture>
-			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 			<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
 				class="img-fluid" alt="section-bg">
 		</picture>
-		{{ end }}
 		{{ end }}
 	</div>
 	{{ end }}
 	<div class="left-shape">
 		{{ with resources.Get `images/left-shape.png` }}
-		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		{{ $jpgImg := .Resize "750x jpg" }}
+		{{ $webpImg := .Resize "750x webp" }}
 		<picture>
-			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
 				class="img-fluid" alt="left-shape">
 		</picture>
-		{{ end }}
 		{{ end }}
 	</div>
 	<div class="container">
@@ -201,14 +195,13 @@
 					{{ range .product_item }}
 					<div class="product-item">
 						{{ with resources.Get .image }}
-						{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
-						{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+						{{ $jpgImg := .Resize "750x jpg" }}
+						{{ $webpImg := .Resize "750x webp" }}
 						<picture>
-							<source type="image/webp" srcset="{{ .RelPermalink }}">
+							<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
 							<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
 								src="{{ $jpgImg.RelPermalink }}" alt="product-image">
 						</picture>
-						{{ end }}
 						{{ end }}
 						<div class="overlay">
 							<div class="content">
