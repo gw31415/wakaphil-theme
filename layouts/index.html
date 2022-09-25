@@ -20,7 +20,16 @@
 							{{ end }}
 						</div>
 						<div class="item-image image-reveal">
-							<img src="{{ .image | absURL }}" alt="slider-image">
+							{{ with resources.Get .image }}
+							{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+							<picture>
+								<source type="image/webp" srcset="{{ .RelPermalink }}">
+								<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+									src="{{ $jpgImg.RelPermalink }}" alt="slider-image">
+							</picture>
+							{{ end }}
+							{{ end }}
 						</div>
 						<div class="scroll">
 							<h6>SCROLL</h6>
@@ -41,11 +50,29 @@
 <section class="mission" id="mission">
 	{{ if .bg_img }}
 	<div class="bg">
-		<img src="{{ .bg_img | absURL}}" class="img-fluid" alt="section-bg">
+		{{ with resources.Get .bg_img }}
+		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		<picture>
+			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+				alt="section-bg" class="img-fluid">
+		</picture>
+		{{ end }}
+		{{ end }}
 	</div>
 	{{ end }}
 	<div class="right-shape">
-		<img src="{{`images/right-shape.png` | absURL}}" class="img-fluid" alt="right-shape">
+		{{ with resources.Get `images/right-shape.png` }}
+		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		<picture>
+			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+				class="img-fluid" alt="right-shape">
+		</picture>
+		{{ end }}
+		{{ end }}
 	</div>
 	<div class="container">
 		<div class="row">
@@ -62,7 +89,16 @@
 					<div class="video image-reveal">
 						<a class="video-play"
 							data-video="https://www.youtube.com/embed/{{.video_id}}?autoplay=1&showinfo=0&controls=0">
-							<img src="{{ .video_thumb | absURL }}" class="img-fluid" alt="video-thumb">
+							{{ with resources.Get .video_thumb }}
+							{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+							<picture>
+								<source type="image/webp" srcset="{{ .RelPermalink }}">
+								<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+									src="{{ $jpgImg.RelPermalink }}" class="img-fluid" alt="video-thumb">
+							</picture>
+							{{ end }}
+							{{ end }}
 							<i class="fa fa-play"></i>
 						</a>
 					</div>
@@ -92,7 +128,16 @@
 							<p>{{ .content | markdownify}}</p>
 						</div>
 						<div class="image image-reveal">
-							<img src="{{ .image | absURL }}" class="img-fluid" alt="vision-thumb">
+							{{ with resources.Get .image }}
+							{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+							{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+							<picture>
+								<source type="image/webp" srcset="{{ .RelPermalink }}">
+								<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+									src="{{ $jpgImg.RelPermalink }}" class="img-fluid" alt="vision-thumb">
+							</picture>
+							{{ end }}
+							{{ end }}
 							</img>
 						</div>
 					</div>
@@ -111,11 +156,29 @@
 <section class="products" id="{{ $id }}">
 	{{ if .bg_img }}
 	<div class="bg">
-		<img src="{{ .bg_img | absURL}}" class="img-fluid" alt="section-bg">
+		{{ with resources.Get .bg_img }}
+		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		<picture>
+			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+				class="img-fluid" alt="section-bg">
+		</picture>
+		{{ end }}
+		{{ end }}
 	</div>
 	{{ end }}
 	<div class="left-shape">
-		<img src="{{`images/left-shape.png` | absURL}}" class="img-fluid" alt="left-shape">
+		{{ with resources.Get `images/left-shape.png` }}
+		{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+		{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+		<picture>
+			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+				class="img-fluid" alt="left-shape">
+		</picture>
+		{{ end }}
+		{{ end }}
 	</div>
 	<div class="container">
 		<div class="row">
@@ -139,7 +202,16 @@
 				<div class="product-slider-wrapper">
 					{{ range .product_item }}
 					<div class="product-item">
-						<img src="{{ .image | absURL }}" alt="product-image">
+						{{ with resources.Get .image }}
+						{{ $jpgImg := .Resize (printf "%dx%d jpg" .Width .Height) }}
+						{{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+						<picture>
+							<source type="image/webp" srcset="{{ .RelPermalink }}">
+							<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+								src="{{ $jpgImg.RelPermalink }}" alt="product-image">
+						</picture>
+						{{ end }}
+						{{ end }}
 						<div class="overlay">
 							<div class="content">
 								<h5>{{ .title | markdownify }}</h5>
