@@ -19,7 +19,7 @@ AUTHOR WEBSITE: https://themefisher.com
 
 	<!-- Stylesheets -->
 	{{ $preloaderStyle := resources.Get "scss/preloader.scss" | toCSS | minify }}
-	<style> {{ $preloaderStyle.Content | safeCSS }} </style>
+	<style>{{$preloaderStyle.Content | safeCSS}}</style>
 	{{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
 	<link rel="preload" href="{{ $styles.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
@@ -55,6 +55,7 @@ AUTHOR WEBSITE: https://themefisher.com
 	<script defer src="{{ . | safeURL }}"></script>
 	{{ end }}
 
+	<script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<!-- Main Script -->
 	{{ $lib := resources.Get "js/vendors.js" }}
 	<script defer src="{{ $lib.Permalink }}"></script>
