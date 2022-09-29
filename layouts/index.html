@@ -155,7 +155,7 @@
 		{{ $webpImg := .Resize "750x webp" }}
 		<picture>
 			<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
-			<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+			<img width="{{ .Width }}" height="{{ .Height }}" data-lazy="{{ $jpgImg.RelPermalink }}"
 				class="img-fluid" alt="section-bg">
 		</picture>
 		{{ end }}
