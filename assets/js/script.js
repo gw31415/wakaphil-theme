@@ -7,7 +7,7 @@
 	$(document).ready(function() {
 		// Video Play
 		$(".video-play").click(function() {
-			var video = '<iframe allowfullscreen src="' +
+			const video = '<iframe allowfullscreen src="' +
 				$(this).attr("data-video") +
 				'"></iframe>';
 			$(this).replaceWith(video);
@@ -16,7 +16,7 @@
 		//  Video Replace
 		// -----------------------------
 		$(".video-box i").click(function() {
-			var video = '<iframe allowfullscreen src="' +
+			const video = '<iframe allowfullscreen src="' +
 				$(this).attr("data-video") +
 				'"></iframe>';
 			$(this).replaceWith(video);
@@ -79,21 +79,14 @@
 		// -----------------------------
 		// Smmoth Scroll
 		// -----------------------------
-		function smoothScroll() {
-			$("a.page-scroll").on("click", function(event) {
-				var $anchor = $(this);
-				$("html, body")
-					.stop()
-					.animate(
-						{
-							scrollTop: $($anchor.attr("href")).offset().top - 0,
-						},
-						1000,
-					);
-				event.preventDefault();
-			});
-		}
-		smoothScroll();
+		// $('a[href^="#"]').click(function() {
+		// 	const speed = 500;
+		// 	const href = $(this).attr("href");
+		// 	const target = $(href == "#" || href == "" ? "html" : href);
+		// 	const position = target.offset().top;
+		// 	$("html, body").animate({ scrollTop: position }, speed, "swing");
+		// 	return false;
+		// });
 	});
 
 	$(window).on("load", function() {
