@@ -1,15 +1,4 @@
-<!-- Google Map API -->
-{{ with site.Params.map.gmap_api }}
-<script src="{{ . | safeURL }}"></script>
-{{ end }}
-<!-- Main Script -->
-{{ $lib := resources.Get "js/vendors.js" }}
-<script src="{{ $lib.Permalink }}"></script>
-{{ $script := resources.Get "js/script.js" | minify}}
-<script src="{{ $script.Permalink }}"></script>
-
 <!-- cookie -->
-{{ if site.Params.cookies.enable }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
 <div id="js-cookie-box" class="cookie-box cookie-box-hide">
 	This site uses cookies. By continuing to use this website, you agree to their
@@ -51,4 +40,3 @@
 		display: none;
 	}
 </style>
-{{ end }}

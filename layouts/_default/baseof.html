@@ -17,7 +17,9 @@
 	{{ partial "page-header.html" . }}
 	{{ end }}
 	{{- block "main" . }}{{- end }}
-	{{- partial "footer.html" . -}}
+	{{ if site.Params.cookies.enable }}
+	{{- partial "cookie.html" . -}}
+	{{ end }}
 </body>
 
 </html>
