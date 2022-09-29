@@ -33,7 +33,6 @@
 					breakpoint: 700,
 					settings: {
 						slidesToShow: 2,
-						lazyLoad: 'progressive',
 					},
 				},
 				{
