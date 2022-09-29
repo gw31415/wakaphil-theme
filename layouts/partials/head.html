@@ -10,15 +10,15 @@ AUTHOR WEBSITE: https://themefisher.com
 <head>
 	<meta charset="utf-8" />
 	<title>{{ .Title }}</title>
-
-	<!-- mobile responsive meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<meta name="description"
 		content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}" />
-	{{ with site.Params.author }}
-	<meta name="author" content="{{ . }}" />
-	{{ end }} {{ hugo.Generator }}
-	<!-- Main Stylesheet -->
+	<meta name="author" content="{{ site.Params.author }}" />
+	{{ hugo.Generator }}
+
+	<!-- Stylesheets -->
+	{{ $preloaderStyle := resources.Get "scss/preloader.scss" | toCSS | minify }}
+	<style>{{ $preloaderStyle.Content | safeCSS }}</style>
 	{{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
 	<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen" />
 
@@ -42,9 +42,9 @@ AUTHOR WEBSITE: https://themefisher.com
 	<!-- multilingual SEO optimizations -->
 	{{ if .IsTranslated }} {{ range .Page.AllTranslations }}
 	<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
-	{{ end }} {{ end }} {{ with .Params.Image }}
-	<meta property="og:image" content="{{ . | absURL }}" />
-	{{ end }} {{ template "_internal/opengraph.html" . }} {{ template
+	{{ end }} {{ end }}
+	<meta property="og:image" content="{{ .Params.Image | absURL }}" />
+	{{ template "_internal/opengraph.html" . }} {{ template
 	"_internal/twitter_cards.html" . }} {{ if hasPrefix .Site.GoogleAnalytics "G-"
 	-}} {{ template "_internal/google_analytics.html" . -}} {{ else -}} {{
 	template "_internal/google_analytics_async.html" . -}} {{ end -}}
