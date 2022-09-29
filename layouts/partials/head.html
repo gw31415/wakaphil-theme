@@ -19,19 +19,19 @@ AUTHOR WEBSITE: https://themefisher.com
 
 	<!-- Stylesheets -->
 	{{ $preloaderStyle := resources.Get "scss/preloader.scss" | toCSS | minify }}
-	<style>{{ $preloaderStyle.Content | safeCSS }}</style>
+	<style> {{ $preloaderStyle.Content | safeCSS }} </style>
 	{{ $styles := resources.Get "scss/style.scss" | toCSS | minify }}
-	<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen" />
+	<link rel="preload" href="{{ $styles.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
 	<!--Font: Shippori Mincho B1 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet" />
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" as="style"
+		onload="this.onload=null;this.rel='stylesheet'" />
 
 	<!--Fontawesome 6.2.0  -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" as="style"
+		onload="this.onload=null;this.rel='stylesheet'" />
 
 	<!--Favicon-->
 	{{ $favicon := cond (isset .Site.Params `favicon`) ((resources.Get
