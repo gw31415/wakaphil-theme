@@ -196,11 +196,11 @@
 					<div class="product-item">
 						{{ with resources.Get .image }}
 						{{ $jpgImg := .Resize "750x jpg" }}
-						{{ $webpImg := .Resize "750x webp" }}
+						<!-- {{ $webpImg := .Resize "750x webp" }} -->
 						<picture>
-							<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
-							<img loading="lazy" width="{{ .Width }}" height="{{ .Height }}"
-								src="{{ $jpgImg.RelPermalink }}" alt="product-image">
+							<!-- <source type="image/webp" srcset="{{ $webpImg.RelPermalink }}"> -->
+							<img width="{{ .Width }}" height="{{ .Height }}" data-lazy="{{ $jpgImg.RelPermalink }}"
+								alt="product-image">
 						</picture>
 						{{ end }}
 						<div class="overlay">

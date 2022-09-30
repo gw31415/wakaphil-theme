@@ -23,6 +23,7 @@
 		});
 		$(".product-slider-wrapper").slick({
 			slidesToShow: 3,
+			lazyLoad: 'progressive',
 			infinite: true,
 			prevArrow:
 				"<button type='button' class='slick-prev'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
