@@ -1,0 +1,23 @@
+<div class="col-lg-4 col-sm-6 mb-4">
+  <article class="card shadow">
+    <a href="{{.Permalink}}" title="{{.Title }}">
+		{{ with .Resources.GetMatch .Params.image }}
+			{{ with .Fill "500x300 Top" }}
+				{{ $jpgImg := .Resize "500x jpg" }}
+				{{ with .Resize "500x webp" }}
+					<picture>
+						<source type="image/webp" srcset="{{ .RelPermalink }}">
+						<img class="rounded card-img-top" decoding="async" src="{{ $jpgImg.RelPermalink }}" alt="{{ .Title }}">
+					</picture>
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	</a>
+    <div class="card-body">
+      <h4 class="card-title"><a class="text-dark" href="{{.Permalink}}">{{.Title }}</a>
+      </h4>
+	  <p class="cars-text">{{.Summary}}{{if .Truncated}}……{{end}}</p>
+      <a href="{{.Permalink}}" class="btn btn-sm btn-primary">Read More</a>
+    </div>
+  </article>
+</div>

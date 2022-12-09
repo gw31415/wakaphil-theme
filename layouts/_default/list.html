@@ -1,13 +1,13 @@
 {{ define "main" }}
 
+<!-- blog -->
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        {{.Content }}
-      </div>
+      {{ range .Data.Pages }} {{ .Render "post" }} {{ end }}
     </div>
   </div>
 </section>
+<!-- /blog -->
 
 {{ end }}
