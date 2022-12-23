@@ -1,13 +1,6 @@
 .contact {
   table {
-    width: 500px;
-    overflow: scroll;
-    th {
-      border-bottom: 3px double;
-    }
-    td {
-      padding-right: .5em;
-    }
+	  min-width: 500px;
   }
   position: relative;
   padding-top: 180px;

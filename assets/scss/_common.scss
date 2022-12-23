@@ -3,6 +3,20 @@ body {
   font-size: 20px;
 }
 
+table {
+  overflow: scroll;
+  th {
+    border-bottom: 3px double;
+  }
+  td {
+    padding-right: .5em;
+  }
+}
+
+p {
+  text-indent: 1em;
+}
+
 .section {
   padding: 100px 0;
 }
