@@ -23,8 +23,9 @@
 	<div style="position:absolute">
 		<picture>
 			<source type="image/webp" srcset="{{ .RelPermalink }}">
-			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
-				alt="slider-image" style="width:100vw;height:100vh;object-fit:cover;object-position:bottom;filter:blur(3px) opacity(30%)">
+			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}"
+				src="{{ $jpgImg.RelPermalink }}" alt="slider-image"
+				style="width:100vw;height:100vh;object-fit:cover;object-position:bottom;filter:blur(3px) opacity(30%)">
 		</picture>
 	</div>
 	{{- partial "header.html" . -}}
@@ -34,6 +35,16 @@
 	{{ partial "page-header.html" . }}
 	{{ end }}
 	{{- block "main" . }}{{- end }}
+
+	{{ if site.Data.homepage.footer.enable }}
+	{{ with site.Data.homepage.footer }}
+	<footer class="footer">
+		<div class="text-center">
+			{{ .title | markdownify }}
+		</div>
+	</footer>
+	{{end}}
+	{{end}}
 </body>
 
 </html>

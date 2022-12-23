@@ -235,14 +235,4 @@
 {{ end }}
 {{ end }}
 
-{{ if site.Data.homepage.call_to_action.enable }}
-{{ with site.Data.homepage.call_to_action }}
-<footer class="footer">
-	<div class="text-center">
-		{{ .title | markdownify }}
-	</div>
-</footer>
-{{end}}
-{{end}}
-
 {{ end }}
