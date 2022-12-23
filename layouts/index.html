@@ -190,36 +190,20 @@
 			</div>
 		</div>
 	</div>
+	{{ end }}
 	<div class="container-fluid p-0">
 		<div class="row m-0">
 			<div class="col-lg-10 ml-auto p-0">
 				<div class="product-slider-wrapper">
-					{{ range .product_item }}
-					<div class="product-item">
-						{{ with resources.Get .image }}
-						{{ $jpgImg := .Resize "750x jpg" }}
-						<!-- {{ $webpImg := .Resize "750x webp" }} -->
-						<picture>
-							<!-- <source type="image/webp" srcset="{{ $webpImg.RelPermalink }}"> -->
-							<img width="{{ .Width }}" height="{{ .Height }}" data-lazy="{{ $jpgImg.RelPermalink }}"
-								alt="product-image">
-						</picture>
-						{{ end }}
-						<div class="overlay">
-							<div class="content">
-								<h5>{{ .title | markdownify }}</h5>
-								<p>{{ .content | markdownify }}</p>
-								<a href="{{ .project_url | absURL }}">Read More</a>
-							</div>
-						</div>
-					</div>
+					{{ range first 3 ( where .Site.Pages ".Params.categories" "intersect" (slice
+					site.Data.homepage.product.category) ) }}
+					{{ .Render "poster" }}
 					{{ end }}
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-{{ end }}
 {{ end }}
 
 {{ if site.Data.homepage.contact.enable }}
