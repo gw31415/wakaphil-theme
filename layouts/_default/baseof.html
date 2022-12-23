@@ -12,8 +12,25 @@
 	<!-- 	<div class="divider"></div> -->
 	<!-- </div> -->
 	{{- partial "preloader.html" . -}}
+	{{ if .IsHome }}
 	{{- partial "header.html" . -}}
+	{{ end }}
 	{{ if not .IsHome }}
+	{{ with site.Data.homepage.banner }}
+	{{ with resources.Get .image }}
+	{{ $jpgImg := .Resize "750x jpg" }}
+	{{ with .Resize "750x webp" }}
+	<div style="position:absolute">
+		<picture>
+			<source type="image/webp" srcset="{{ .RelPermalink }}">
+			<img decoding="async" width="{{ .Width }}" height="{{ .Height }}" src="{{ $jpgImg.RelPermalink }}"
+				alt="slider-image" style="width:100vw;height:100vh;object-fit:cover;object-position:bottom;filter:blur(3px) opacity(30%)">
+		</picture>
+	</div>
+	{{- partial "header.html" . -}}
+	{{ end }}
+	{{ end }}
+	{{ end }}
 	{{ partial "page-header.html" . }}
 	{{ end }}
 	{{- block "main" . }}{{- end }}
