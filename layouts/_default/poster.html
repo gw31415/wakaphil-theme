@@ -1,0 +1,18 @@
+<div class="product-item">
+	{{ with .Resources.GetMatch .Params.image }}
+	{{ $jpgImg := .Resize "750x jpg" }}
+	<!-- {{ $webpImg := .Resize "750x webp" }} -->
+	<picture>
+		<!-- <source type="image/webp" srcset="{{ $webpImg.RelPermalink }}"> -->
+		<img width="{{ .Width }}" height="{{ .Height }}" data-lazy="{{ $jpgImg.Permalink }}"
+			alt="product-image">
+	</picture>
+	{{ end }}
+	<div class="overlay">
+		<div class="content">
+			<h5>{{ .Params.title | markdownify }}</h5>
+			<p>{{ .Params.description | markdownify }}</p>
+			<a href="{{ .RelPermalink | absURL }}">Read More</a>
+		</div>
+	</div>
+</div>
