@@ -146,6 +146,34 @@
 {{ end }}
 {{ end }}
 
+{{ if site.Data.homepage.sponsor.enable }}
+{{ with site.Data.homepage.sponsor }}
+{{ $id := cond ( isset . `id` ) .id `sponsor` }}
+<section class="sponsors" id="{{ $id }}">
+	<div class="container-fluid">
+		<div class="text-block">
+			<div class="container">
+				<div class="col-md-8">
+					<h2><span class="rev">{{ .title | markdownify }}</span>
+					</h2>
+				</div>
+			</div>
+			{{ range .items }}
+			<div class="text-block sponsor-item">
+				{{ . | markdownify }}
+			</div>
+			{{ end }}
+			<div class="container">
+				<div class="col-md-8">
+					<p>{{ .content | markdownify }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{{ end }}
+{{ end }}
+
 {{ if site.Data.homepage.product.enable }}
 {{ with site.Data.homepage.product }}
 {{ $id := cond ( isset . `id` ) .id `products` }}
