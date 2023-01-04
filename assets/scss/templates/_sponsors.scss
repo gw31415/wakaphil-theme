@@ -3,12 +3,12 @@
     text-align: center;
     margin: 3rem 0;
     font-size: 2rem;
-      @include desktop {
-        font-size: 2rem;
-      }
-      @include tablet {
-        font-size: 1.5rem;
-      }
+    @include desktop {
+      font-size: 2rem;
+    }
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
   position: relative;
   @include tablet {
@@ -75,7 +75,7 @@
     h2 {
       position: relative;
       margin-bottom: 42px;
-      font-size: 60px;
+      font-size: 42px;
       line-height: 65px;
       letter-spacing: 1px;
       span {
@@ -83,17 +83,18 @@
         text-transform: capitalize;
       }
       @include desktop {
-        font-size: 50px;
+        font-size: 35px;
         line-height: 60px;
       }
       @include tablet {
-        font-size: 35px;
+        font-size: 27px;
         line-height: 40px;
       }
-      // @include mobile {
-      //   font-size: 20px;
-      //   line-height: 25px;
-      // }
+      @include mobile {
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0;
+      }
       &::before {
         position: absolute;
         content: "";
