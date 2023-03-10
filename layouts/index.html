@@ -219,18 +219,29 @@
 		</div>
 	</div>
 	{{ end }}
-	<div class="container-fluid p-0">
-		<div class="row m-0">
-			<div class="col-lg-10 ml-auto p-0">
-				<div class="product-slider-wrapper">
-					{{ range first 3 ( where .Site.Pages ".Params.categories" "intersect" (slice
-					site.Data.homepage.product.category) ) }}
-					{{ .Render "poster" }}
-					{{ end }}
+	{{ range site.Data.homepage.product.categories }}
+	{{ $pages := first 3 ( where site.Pages ".Params.categories" "intersect" (slice . ) ) }}
+	{{ if gt (len $pages) 0 }}
+	<div class="spacer">
+		<div class="container">
+			<div class="text-block">
+				<h3> {{ . }}</h3>
+			</div>
+		</div>
+		<div class="container-fluid p-0">
+			<div class="row m-0">
+				<div class="col-lg-10 ml-auto p-0">
+					<div class="product-slider-wrapper">
+						{{ range $pages }}
+						{{ .Render "poster" }}
+						{{ end }}
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	{{ end }}
+	{{ end }}
 </section>
 {{ end }}
 

@@ -62,6 +62,24 @@
   .text-block {
     position: relative;
     z-index: 3;
+    h3 {
+      position: relative;
+      font-size: 40px;
+      line-height: 42px;
+      letter-spacing: 1px;
+      span {
+        clip-path: inset(0 100% 0 0);
+        text-transform: capitalize;
+      }
+      @include desktop {
+        font-size: 30px;
+        line-height: 32px;
+      }
+      @include tablet {
+        font-size: 20px;
+        line-height: 22px;
+      }
+    }
     h2 {
       position: relative;
       margin-bottom: 42px;
@@ -108,19 +126,22 @@
   }
 }
 
-.product-slider-wrapper {
-  padding-top: 175px;
-  padding-bottom: 135px;
-  position: relative;
+.spacer {
+  margin-top: 100px;
+  margin-bottom: 75px;
   // margin-left: 20%;
   @include desktop {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
   @include tablet {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
+}
+
+.product-slider-wrapper {
+  position: relative;
   z-index: 3;
   .product-item {
     overflow: hidden;
