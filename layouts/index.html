@@ -220,7 +220,7 @@
 	</div>
 	{{ end }}
 	{{ range site.Data.homepage.product.categories }}
-	{{ $pages := first 3 ( where site.Pages ".Params.categories" "intersect" (slice . ) ) }}
+	{{ $pages := (first 3 ( where site.Pages ".Params.categories" "intersect" (slice . ) )).ByDate.Reverse }}
 	{{ if gt (len $pages) 0 }}
 	<div class="spacer">
 		<div class="container">

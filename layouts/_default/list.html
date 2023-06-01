@@ -4,7 +4,7 @@
 <section class="section">
   <div class="container">
     <div class="row">
-      {{ range .Data.Pages }} {{ .Render "post" }} {{ end }}
+      {{ range .Data.Pages.ByDate.Reverse }} {{ .Render "post" }} {{ end }}
     </div>
   </div>
 </section>
