@@ -7,24 +7,21 @@
 	$(document).ready(function() {
 		// Video Play
 		$(".video-play").click(function() {
-			const video = '<iframe allowfullscreen src="' +
-				$(this).attr("data-video") +
-				'"></iframe>';
+			const video = `<iframe allowfullscreen src="${$(this).attr("data-video")}"></iframe>`;
 			$(this).replaceWith(video);
 		});
 		// -----------------------------
 		//  Video Replace
 		// -----------------------------
 		$(".video-box i").click(function() {
-			const video = '<iframe allowfullscreen src="' +
-				$(this).attr("data-video") +
-				'"></iframe>';
+			const video = `<iframe allowfullscreen src="${$(this).attr("data-video")}"></iframe>`;
 			$(this).replaceWith(video);
 		});
 		$(".product-slider-wrapper").slick({
 			slidesToShow: 3,
 			lazyLoad: 'progressive',
-			infinite: true,
+			// infinite: true,
+			infinite: false,
 			prevArrow:
 				"<button type='button' class='slick-prev'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
 			nextArrow:

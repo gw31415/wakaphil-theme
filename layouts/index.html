@@ -235,6 +235,16 @@
 						{{ range $pages }}
 						{{ .Render "poster" }}
 						{{ end }}
+						<div class="product-item">
+							<div class="moreinfo">
+								<div style="text-decoration:underline;font-style:italic;">もっと見る</div>
+								<div class="button">
+									<a href="/categories/{{ . | urlize  }}">
+										<i class="fa fa-solid fa-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
