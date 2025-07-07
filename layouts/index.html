@@ -170,6 +170,25 @@
 			</div>
 		</div>
 	</div>
+	<!-- spacer -->
+	{{ with site.Data.homepage.custom_sections }}
+	{{ range . }}
+	<div style="height: 100px;"></div>
+	<div class="container-fluid">
+		<div class="text-block">
+			<div class="container">
+				<div class="col-md-8">
+					<h2><span class="rev">{{ .title | markdownify }}</span>
+					</h2>
+				</div>
+				<div class="col-md-8">
+					<p>{{ .content | markdownify }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ end }}
+	{{ end }}
 </section>
 {{ end }}
 {{ end }}
