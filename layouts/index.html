@@ -151,6 +151,16 @@
 {{ $id := cond ( isset . `id` ) .id `sponsor` }}
 <section class="sponsors" id="{{ $id }}">
 	<div class="container-fluid">
+		{{ with resources.Get .top_img }}
+		{{ $jpgImg := .Resize "750x jpg" }}
+		{{ $webpImg := .Resize "750x webp" }}
+			<div style="width:100%;display:flex;justify-content:center;align-items:center;margin-bottom:40px">
+			<picture style="width:750px;max-width:80vw;display:block;overflow:hidden">
+				<source type="image/webp" srcset="{{ $webpImg.RelPermalink }}">
+				<img loading="lazy" src="{{ $jpgImg.RelPermalink }}" alt="sponsor-top-image" style="width:100%">
+			</picture>
+			</div>
+		{{ end }}
 		<div class="text-block">
 			<div class="container">
 				<div class="col-md-8">
